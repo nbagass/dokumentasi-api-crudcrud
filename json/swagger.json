@@ -1,0 +1,151 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Task 15 - Dokumentasi API",
+    "description": "API ini memandu pengguna dalam menggunakan Swagger untuk mendokumentasikan API secara efisien. Pengguna dapat belajar konfigurasi dasar, penjelasan endpoint, parameter, dan respons yang diharapkan. API menyediakan contoh penggunaan sebagai panduan awal. Disarankan untuk memahami konsep dasar Swagger dan merujuk ke dokumentasi resmi untuk kasus penggunaan kompleks. Dikembangkan oleh Bagas Raditya. Hubungi @bagass.rnl untuk informasi lebih lanjut.",
+    "version": "1.0.0"
+  },
+  "host": "crudcrud.com",
+  "basePath": "/api/e5227b3f62d243a585418203969afc42",
+  "schemes": [
+    "https"
+  ],
+  "tags": [
+    {
+      "name": "Datas",
+      "description": "API untuk mengambil data"
+    }
+  ],
+  "paths": {
+    "/unicorns": {
+      "get": {
+        "tags": [
+          "Datas"
+        ],
+        "summary": "List pengguna",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Datas"
+        ],
+        "summary": "Membuat data baru",
+        "parameters": [
+          {
+            "name": "Data",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "age": {
+                  "type": "integer"
+                },
+                "colors": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Data berhasil dibuat"
+          }
+        }
+      }
+    },
+    "/unicorns/{id}": {
+      "get": {
+        "tags": [
+          "Datas"
+        ],
+        "summary": "Ambil data pengguna berdasarkan id data",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "404": {
+            "description": "users not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Datas"
+        ],
+        "summary": "Update data berdasarkan id data",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "type": "string"
+          },
+          {
+            "name": "Data",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "age": {
+                  "type": "integer"
+                },
+                "colors": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull operation"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Datas"
+        ],
+        "summary": "Delete data berdasarkan id data",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull operation"
+          }
+        }
+      }
+    }
+  }
+}
